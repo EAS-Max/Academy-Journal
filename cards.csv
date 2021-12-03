@@ -14,3 +14,14 @@ what is one thing a virtual machine allows you to do?, allows you to emulate a c
 
 what is docker?, a platform that allows users to containerise applications and programs 
 
+what does cd do?, navigate between folders and directories
+
+what does su do?, changes a user to root
+
+what does env do?, shows list of environmental variables
+
+what doeas ls do?, shows all files and folders in current directories
+
+what does > do?, directs output of preceding command to new files
+
+what is root?, admin of the operating system and therefor all powerful
