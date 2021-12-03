@@ -1,0 +1,16 @@
+Question, Answer 
+
+what is the install command for homebrew in terminal?, brew install
+
+What is a package manager?, Software tools that automate installing, updating, removing and configuring for a computer.
+
+What are some examples of package managers?, homebrew yum chocolatey apt
+
+what is the apt command to install git?, apt-get install git
+
+what system does chocolatey run on?, windows
+
+what is one thing a virtual machine allows you to do?, allows you to emulate a computer system for example windows on a mac
+
+what is docker?, a platform that allows users to containerise applications and programs 
+
