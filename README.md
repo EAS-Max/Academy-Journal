@@ -1,4 +1,4 @@
-# Acedemy-Journal
+# Academy-Journal
 Goals
 - To learn 
 - To grow my both personal and proffessional skills.
