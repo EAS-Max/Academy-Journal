@@ -1,0 +1,23 @@
+Env tests 1
+__CFBundleIdentifier=com.apple.Terminal
+TMPDIR=/var/folders/cm/92krz3sn1vb7b85dbv57x_4w0000gn/T/
+XPC_FLAGS=0x0
+LaunchInstanceID=C663AB51-048A-455A-B9CE-4E706E7F4ABA
+TERM=xterm-256color
+SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.hlrNompvkc/Listeners
+SECURITYSESSIONID=186a5
+XPC_SERVICE_NAME=0
+TERM_PROGRAM=Apple_Terminal
+TERM_PROGRAM_VERSION=443
+TERM_SESSION_ID=0344F8A8-778E-464C-8ACF-9AE529AD49AD
+SHELL=/bin/zsh
+HOME=/Users/maxbarron
+LOGNAME=maxbarron
+USER=maxbarron
+PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+SHLVL=1
+PWD=/Users/maxbarron
+OLDPWD=/Users/maxbarron
+myname=captainamerica
+LANG=en_GB.UTF-8
+_=/usr/bin/env

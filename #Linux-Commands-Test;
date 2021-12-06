@@ -1,0 +1,18 @@
+# Linux-Commands-Test
+ls
+pwd
+mkdir linux_commands
+cd linux_commands
+ls > first_file
+pwd
+mkdir backup_first_file
+cd backup_first_file
+cp first_file backup_first_file
+pwd
+mv first_file backup_of_first_file
+cd linux_commands
+mkdir modified_file
+ls > modified_file
+cd modified_file
+mv linux_commands updated_file
+chmod 0777 updated_file
