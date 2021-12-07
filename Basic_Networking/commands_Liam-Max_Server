@@ -1,0 +1,10 @@
+Commands_used_Liam-Max
+
+On a linux virtual machine set a static IP address in bridged mode as assigned - Sudo nano /etc/netplan/00-installer-config.yaml
+Determine which DNS server you are using - cat /etc/resolv.conf
+Set your DNS server to google -
+ - sudo nano /etc/resolv.conf
+Retrieve the IP address for a internet hostname - Nslookup www.google.co.uks
+Confirm whether another trainees linux machine is available on the network using a utility - ping 192.168.1.120
+Retrieve your virtual machines hostname - hostname
+Retrieve your virtual machines IP address - ifconfig
