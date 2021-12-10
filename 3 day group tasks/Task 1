@@ -1,0 +1,21 @@
+# Task 1 Commands Used
+
+- nmtui (change certain connection info like set ip address to static)
+
+- ls -a (to show all hidden files)
+
+- unzip *app1.zip (to unzip .zip files)
+
+- su (to become root user)
+
+- vi (to edit various files)
+
+- node (to run code, in this case node index.js)
+
+- scp file user@host ame/ip:/remote_folder (to send app files directly to other users on the network)
+
+- https -server (run https server for the team to grab my files)
+
+- curl https://max <filename> (for other users to get my files)
+
+Many more basic commands were used
