@@ -1,0 +1,61 @@
+
+- set up the DHCP server
+
+nmtui	 								(Check and change my IP address to static)
+
+Set ens160 IP to 10.0.0.4
+
+Dnf makecache							 (Update DNF package)
+Dnf install dhcp-server						(Install server )
+
+Vim /etc/dhcp/dhcpd.conf 					(Configure server config files)
+
+dhcpd.conf file
+default-lease-time 600;
+max-lease-time 7200;						 (Max amount of time a ip can be used for)
+
+ddns-update-style none ;
+authoritative ;
+
+Subnet 10.0.0.0 net mask 255.255.255.0 {
+range 10.0.0.10 10.0.0.50; 					(Range of assignable IPs)
+option routers 10.0.0.1; 						(Default Gateway)
+option subnet-mask 255.255.255.0; 			(Default subnet mask that will be assigned to each host)
+Option domain-name-servers 10.0.0.3; 		(Defines the DNS name servers which will be assigned to each host)
+}
+
+Start systemctl start dhcp 					(Starts DNS server)
+
+Max VM had all the zip files we needed so max run the commands:
+			find / -name app*zip  				(Find ZIPs)
+
+			http server 						(Set up http server)
+
+
+Curl https://max/app3.zip         (Get request for app3.zip from Max)       
+
+Unzip app3.zip 				  (Unzip app3.zip)
+
+Cd /app3/ 					  (Change directory to app3)
+Ls 							  (View files and directories inside app3)
+
+Vi index.js					  (Edit index.js file and change port to 80)
+
+Index.js
+Const express = require(‘express’);
+const axis = require(‘axios’);
+Const app = express();
+app.get(‘/‘, async (req, res) => {
+	try{
+		const {data} = await axios.get(‘http://10.0.0.12')
+		res.send([…data, ‘app 4 status: OK’])
+ 	} catch (error) {
+		console.log(error.message)
+		res.send([‘app 4 status: OK’])
+	}
+})
+Node index.js 				(Run node app)
+
+Output - App 1 ‘OK’, App 2 ‘OK’, App 2 ‘OK’, App 4 ‘OK’, App 5 ‘OK’, App 6 ‘OK’
+
+Actual code can vary depending on situation.
