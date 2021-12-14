@@ -1,0 +1,20 @@
+# Task 2 DNS task
+commands and steps
+ DNS 
+- Set static ip
+- Set gateway
+- Given internet to install bind and bind utils
+- Internet removed
+- Systemctl enabled named (enabled dns and started running)
+- Systemctl status name to check
+- Stat table showed dns was running
+- First file was in etc/ directory 
+- Opened vi for etc/ named .conf
+- Got rid of local host within file and linked the forward zone and reverse zone (basically the hostnames for things coming in and out varying depending where ‘it’ was going to)
+- Set standard config (copied from online)
+- Linked apps to their respective users (app1 to 10.0.0.1)
+- Systemctl restart names to restart server so all new changes worked
+- Systemctl status to check once again
+- Firewall cmd permanent 53 to change allowed port to 53
+- Firewall cmd — reload to reboot the firewall
+- This then allowed all users connected to the dns to have access out of the segregated network and in turn could now ping the other users as well as domain names outside the network like google.com
