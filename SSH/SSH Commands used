@@ -1,0 +1,10 @@
+
+ssh-keygen - This command generates the public and private keys for the ssh connections 
+ if not specified it goes to the files id_rsa and id_rsa.public
+
+ssh-copy-id -i ~/.ssh/id_rsa.pub user@(IP) - This command send the key to a users system which allowes
+ you to access said system in future without needing a password or verification
+
+ssh user@(IP) - this command allowes you to ssh into another users account as long as
+  you have their password as it will always ask for one.
+
