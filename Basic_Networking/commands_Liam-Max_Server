@@ -8,3 +8,4 @@ Retrieve the IP address for a internet hostname - Nslookup www.google.co.uks
 Confirm whether another trainees linux machine is available on the network using a utility - ping 192.168.1.120
 Retrieve your virtual machines hostname - hostname
 Retrieve your virtual machines IP address - ifconfig
+set host name to IP address - vi etc/hosts, cat etc/hosts, ping Liams

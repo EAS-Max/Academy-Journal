@@ -1,0 +1,47 @@
+Planning for task 3:
+
+Roles:
+    - Kalem: DNS
+    - Harrison: DNS
+    - Liam: DHCP
+    - Max: DHCP
+    - Kaine: Gateway
+
+Task 1:
+    No access to vcenter.
+    We must work out how to ssh into our segregated vms and work on them through that.
+    Settup network interface for 3 middle systems.
+
+Task 2:
+    Setting up static IPs and DNS/Gateway links.
+
+Task 3:
+    - Kalem/Harrison:
+        Install bind / bind-utils.
+        Configure bind files.
+        Configure forward zone / reverse zone.
+        Configure Firewall.
+    
+    - Liam/Max:
+        Install makecash with dnf.
+        Install dhcp-server with dnf.
+        Configure server config.
+        Run startsystemctl start dhcp.
+
+    - Kaine:
+        Configure ethernet interfaces.
+        Configure Gateway.
+        Configure DNS link.
+
+Task4:
+    Pull apps from Max.
+    Configure app data passthrough.
+    Ensure firewall disabled.
+    Call apps from outside network through Max ingress.
+
+
+IP Systems:
+Liam - Dynamic: 10.0.0.10       Static: 10.0.0.3
+Kalem - Dynamic: 10.0.0.11      Static: 10.0.0.2
+Max - Dynamic: 10.0.0.12        Static: 10.0.0.5
+Harrison - Dynamic: 10.0.0.13   Static: 10.0.0.4

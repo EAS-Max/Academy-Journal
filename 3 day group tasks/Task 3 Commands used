@@ -1,0 +1,77 @@
+This task was very similar to the second but with more rules: 
+1. People were not allowed to do the same jobs they did in the last task.
+2. No network interface cards were given for installing things and only people with an office ip
+were the ingress and egress systems (me and kaine) 
+3. We were not allowed to access our vms via vcenter and therefor had to find another way into them.
+4. We were told that everyone must run off the dhcp server meaning no personal config was allowed.
+
+commands used
+nmap 192.168.1.0/24 -p 22 - we used various nmap commands but this one scanned for ip adresses on the network 
+that were running on port 22 which led us to discover the 192.168.1.150 office ip
+
+ssh user@192.168.1.150 - to access the segregated network with an office ip
+
+We then had to give everyone ips and this time we could not all setup our own so we needed
+to setup the dhcp server on Liams machine in order to start trying to give the others network access.
+
+some of the commands used for dhcp on Liams system:
+dnf install dhcp-server
+    This was used to install the dhcp server package
+
+    next we had to edit the configuration
+vi /etc/dhcp/dhcpd.conf
+    This command was used to enter the file I would need to configured
+    This file was configured with the subnet and netmask and given the desired IP range for the dynamic IP addresses.
+
+systemctl start dhcpd
+systemctl status dhcpd
+    Once configured the dhcpd server could be started and the status checked.
+
+    Once downloaded it was time to edit the configuration
+vi /etc/dhcp/dhcpd.conf
+    This command was used to enter the file I would need to configured
+    This file was configured with the subnet and netmask and given the desired IP range for the dynamic IP addresses.
+
+systemctl start dhcpd
+systemctl status dhcpd
+    Once configured the dhcpd server could be started and the status checked.
+
+firewall-cmd --add-service=dhcp --permanent
+firewall-cmd --reload
+    Last the firewall needed to be configured to allow the dhcp permission and then restarted.
+
+
+    With each of the systems given a dynamic IP we had access to our VMs.
+    We could use an ssh connection to get into them.
+    ssh user@10.0.0.10
+    This was used to ssh into my vm with the dynamic IP.
+
+    Once I had access I could now set a static IP for this vm.
+vi /etc/sysconfig/network-script/ifcfg-ens160
+    With this file I could set my IP to static and set it to 10.0.0.3
+
+    After taht was set in the file I needed to update the network setting.
+ifdown ens160 && ifup ens160
+    I had to use a command chain to be able to shutdown and restart the ens160 network.
+    As soon as the ifdown was run the ssh connection would drp and there would be no way to get access to the vm.
+    This is why I had to use the command chain to make sure that even after I lost connection the vm would bring the network back up.
+    With it back up again I simply had to ssh back into the vm and I now had a static IP.
+
+    Once the gateway was set on 10.0.0.1 we now had access to the internet through that gateway.
+
+dnf install dchp-server
+    It was now time to download the dhcp-server packege for with this system.
+
+vi /etc/dhcp/dhcpd.conf
+    It was now time to configure the dhcp server again on this vm.
+
+systemctl start dhcpd
+systemctl status dhcpd
+  With the configuration set I could run the dhcpd server and check the status to confirm it was running correctly.
+
+firewall-cmd --add-service=dhcp --permanent
+firewall-cmd --reload  
+
+With that done mine and Liams main task was finished but i still had to give people the app files and then go onto run them eventually to complete the task
+
+I i ran a http server (http-serve) to allow the others to pull my files with a wget command (wget http://max/app3.zip) 
