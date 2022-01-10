@@ -1,0 +1,34 @@
+#!bin/bash
+#never used expect script before but in theory I think when written correctly 
+#you could autoexpect the prompts and then send the correct responses in order
+#to automate the prompt proccess however this would envolve having the
+#password written in the script and therefor probably not the most secure
+#way to do things if working with actual clients. 
+#(also this script is not expected to work but just to give a basic idea)
+
+yum install expect
+
+sleep 20s 
+#example
+ssh root@192.168.1.175
+
+expect "(yes/no/[fingerprint])?"
+
+send "yes"
+
+expect "assword:"
+
+send "Renegade187!"
+
+
+#I think expect could also be used to fix the control C issue as 
+#you could set an expect for the http-server and then send control C
+#but i would need to play around with expect more as that may not work
+
+#alternatively a tool called xdotool could be used to fix the control C issue
+#example of this would be 
+
+sleep 10; xdotool key "ctrl+c"
+#this command should do the control c key press wherever the command is put
+#so in this case it would be put after the command that runs the http-server.
+#I added the sleep just to make sure the http-server has time to run.
