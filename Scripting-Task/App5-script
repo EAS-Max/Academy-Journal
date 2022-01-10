@@ -1,0 +1,37 @@
+#!/bin/bash
+
+echo "unzip file"
+unzip /etc/hidden_folder/apps/app1.zip
+echo "file unzipped"
+
+echo "copying file"
+cp app1/index.js app1/index.bak
+echo "file compied"
+
+echo "Populating index"
+echo "const express = require(\"express\");
+const axios = require('axios');
+
+const app = express();
+
+app.get('/', async (req, res) => {
+    try {
+        const { data } = await axios.get('http://app6')
+        res.send([...data, 'app5 status: OK'])
+
+    } catch (error) {
+        console.log(error.message)
+        res.send(['app5 status: NOT OK'])
+    }
+})
+
+app.listen(80)" > app1/index.js
+echo "index populated"
+
+systemctl start firewalld
+
+firewall-cmd --permanent --add-port=80/tcp
+firewall-cmd --reload
+# npm install -g forever
+
+node app1/index.js &
