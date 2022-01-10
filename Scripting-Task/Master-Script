@@ -1,0 +1,62 @@
+#!/bin/bash
+# Master Script
+
+# Setup DHCP server
+echo "Setting up updated DHCP"
+ssh root@192.168.1.175 < 2021-linux-scripting/dhcp.sh
+echo "DHCP complete"
+
+echo "waiting"
+sleep 30s
+
+
+# Setup Gateway
+echo "Setting up Gateway"
+./2021-linux-scripting/gateway_conf.sh
+./2021-linux-scripting/gateway_conf.sh
+echo "Gateway complete"
+
+echo "waiting"
+sleep 30s
+
+
+# Setup DNS
+echo "Setting up DNS"
+ssh root@10.0.0.3 < 2021-linux-scripting/dns-config.sh
+echo "DNS complete"
+
+echo "waiting"
+sleep 30s
+
+# Running file server
+echo "Running the file server"
+ssh root@10.0.0.2 < 2021-linux-scripting/File-Server-HTTP.sh
+echo "File server is running"
+
+# Pulling and running apps
+echo "Pulling apps"
+echo "app1"
+sh 2021-linux-scripting/app1.sh 
+
+echo "app2"
+echo "waiting"
+sleep 20s
+ssh root@10.0.0.10 < 2021-linux-scripting/app2.sh 
+
+echo "app3"
+echo "waiting"
+sleep 20s
+ssh root@10.0.0.3 < 2021-linux-scripting/app3.sh 
+
+echo "app4"
+echo "waiting"
+sleep 20s
+ssh root@10.0.0.11 < 2021-linux-scripting/app4.sh 
+
+echo "app5"
+echo "waiting"
+sleep 20s
+ssh root@10.0.0.2 < 2021-linux-scripting/app5.sh 
+echo "Apps running"
+
+echo "Master Script Complete"
